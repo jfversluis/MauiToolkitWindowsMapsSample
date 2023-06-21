@@ -1,24 +1,35 @@
-﻿namespace MauiToolkitWindowsMapsSample;
+﻿using Microsoft.Maui.Controls.Maps;
+using Microsoft.Maui.Maps;
+
+namespace MauiToolkitWindowsMapsSample;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        var p = new Pin()
+        {
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+            Location = new Location(50, 6),
+            Label = "Subscribe to this channel from this location",
+            Address = "My Locationroad 1337"
+        };
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        p.MarkerClicked += P_MarkerClicked;
+
+        myMap.Pins.Add(p);
+
+		myMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Location(50, 6), Distance.FromKilometers(10)));
+    }
+
+    private void P_MarkerClicked(object sender, PinClickedEventArgs e)
+    {
+        DisplayAlert("Clicked", "Subscribe", "OK");
+    }
 }
 

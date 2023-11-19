@@ -5,7 +5,7 @@
              x:Class="MauiToolkitWindowsMapsSample.MainPage">
 
   <StackLayout Margin="10">
-    <maps:Map x:Name="myMap" IsShowingUser="true" MapClicked="OnMapClicked" IsTrafficEnabled="True"/>
+      <maps:Map x:Name="myMap" IsShowingUser="true" MapClicked="OnMapClicked" IsTrafficEnabled="True"/>
   </StackLayout>
 
 </ContentPage>

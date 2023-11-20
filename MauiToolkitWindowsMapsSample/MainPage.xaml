@@ -4,9 +4,9 @@
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              x:Class="MauiToolkitWindowsMapsSample.MainPage">
 
-    <VerticalStackLayout>
-        <Button Text="Do things" Clicked="Button_Clicked" />
-        <maps:Map x:Name="myMap" WidthRequest="500" HeightRequest="500" />
-    </VerticalStackLayout>
+  <StackLayout Margin="10" Orientation="Vertical">
+    <Button Text="Do things" Clicked="Button_Clicked" />
+    <maps:Map x:Name="myMap" IsShowingUser="true" MapClicked="OnMapClicked" IsTrafficEnabled="True"/>
+  </StackLayout>
 
 </ContentPage>

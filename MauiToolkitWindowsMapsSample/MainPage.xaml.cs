@@ -5,6 +5,20 @@ namespace MauiToolkitWindowsMapsSample;
 
 public partial class MainPage : ContentPage
 {
+  void OnMapClicked(object sender, MapClickedEventArgs e)
+  {
+    System.Diagnostics.Debug.WriteLine($"MapClick: {e.Location.Latitude}, {e.Location.Longitude}");
+
+    var p = new Pin()
+    {
+
+      Location = e.Location,
+      Label = "A pin",
+      Address = "A place"
+    };
+    myMap.Pins.Add(p);
+  }
+
 	public MainPage()
 	{
 		InitializeComponent();
